@@ -1,8 +1,6 @@
 <template>
 	<main class="converter">
-        <h1 class="converter__title">
-            VALUTACALCULATOR
-        </h1>
+        <h1 class="converter__title">VALUTACALCULATOR</h1>
 
         <h2 class="converter__date">
             What is the currency today? <br>
@@ -10,9 +8,7 @@
         </h2>
 
         <div class="converter__euro">
-            <h2 class="euro__text">
-                eur
-            </h2>
+            <h2 class="euro__text">eur</h2>
                 
             <input type="text" class="euro__valuta" v-model="eurValuta">
 
@@ -25,14 +21,10 @@
 
         <div class="converter__country-code">
             <select class="country-code__text" v-model="selectedValuta">
-                <option v-for="valuta, index in valutas" :value="valuta">
-                    {{ index }}
-                </option>
+                <option v-for="valuta, index in valutas" :value="valuta">{{ index }}</option>
             </select>
 
-            <div class="country-code__valuta">
-                {{ converting }}
-            </div>
+            <div class="country-code__valuta">{{ converting }}</div>
         </div>
 
         <div class="converter__logo">
@@ -80,6 +72,10 @@
 	}
 </script>
 
+<!--
+
+-->
+
 <style>
     .converter__title {
         text-align: center;
@@ -98,7 +94,7 @@
             width: 530px;
             margin: 40px;
             padding: 10px 0px;
-            border: 3px solid #982FA9;
+            border: 3px solid var(--foreground);
             border-radius: 7px;
             font-size: 50px;
         }
@@ -148,8 +144,8 @@
         height: 25px;
         font-size: 20px;
         font-family: 'Courier New', Courier, monospace;
-        background-color: #F6CDCD;
-        border: 2px solid #982FA9;
+        background-color: var(--background);
+        border: 2px solid var(--foreground);
         border-radius: 7px;
         color: #982FA9;
     }
@@ -166,9 +162,10 @@
     }
 
     .euro__valuta, .country-code__valuta {
-        width: 80px;
+        width: 8px;
+        height: 25px;
         margin-left: 10px;
-        border: 2px solid #982FA9;
+        border: 2px solid var(--foreground);
         border-radius: 7px;
         font-size: 15px;
         color: black;
@@ -177,6 +174,7 @@
     @media screen and (min-width: 450px) {
         .euro__valuta, .country-code__valuta {
             width: 180px;
+            height: 40px;
             margin-left: 40px;
             font-size: 30px;
         }
