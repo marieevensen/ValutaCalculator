@@ -67,6 +67,7 @@
             calculate() {
                 const output = this.eurValuta * this.selectedValuta;
                 this.converting = output;
+                this.converting = parseFloat(this.converting).toFixed(4);
             }
 	 	}
 	}
@@ -77,6 +78,7 @@
 2 Henter alle resultatene jeg trenger fra api
 2.1 Gir resultatene nye navn, som this.today -> result.date
 3 Lager en variabel output som er euro valutaen ganget med den valutaen som er valgt
+4 Sier at this.converting bare skal ha 4 desimaler
 -->
 
 <style>
