@@ -96,11 +96,10 @@
     @media screen and (max-width: 650px) {
         .converter__title {
             font-size: 20px;
-            margin: 40px 0 0;
+            margin: 40px 0 0 70px;
             border: none;
             padding: 0;
-            text-align: center;
-            width: 0;
+            text-align: left;
         }
     }
 
