@@ -84,82 +84,60 @@
 <style>
     .converter__title {
         text-align: center;
-        margin-top: 70px;
+        margin: 40px;
         font-size: 40px;
+        width: 530px;
+        padding: 10px 0;
+        border: 3px solid var(--foreground);
+        border-radius: 7px;
+        font-size: 50px;
     }
 
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 650px) {
         .converter__title {
-            font-size: 20px;
-        }
-    }
-
-    @media screen and (min-width: 650px) {
-        .converter__title {
-            width: 530px;
-            margin: 40px;
-            padding: 10px 0px;
-            border: 3px solid var(--foreground);
-            border-radius: 7px;
-            font-size: 50px;
+            font-size: 30px;
+            margin: 40px 0 0;
+            border: none;
+            padding: 0;
         }
     }
 
     .converter__date {
-        text-align: center;
+        text-align: left;
+        margin-left: 70px;
     }
 
     @media screen and (max-width: 650px) {
         .converter__date {
-            font-size: 15px;
-        }
-    }
-
-    @media screen and (min-width: 900px) {
-        .converter__date {
-            text-align: left;
-            padding-left: 150px;
+            font-size: 20px;
         }
     }
 
     .converter__euro, .converter__country-code {
         display: flex;
-        margin: 50px 0px 0px 50px;
+        margin: 50px 0px 0px 165px;
     }
 
-    @media screen and (min-width: 690px) {
+    @media screen and (max-width: 650px) {
         .converter__euro, .converter__country-code {
-            margin: 50px 0px 0px 165px;
+            margin: 50px 0px 0px 50px;
         }
     }
 
     .euro__text {
-        width: 86px;
+        width: 115px;
         padding-left: 4px;
         font-weight: lighter;
     }
 
-    @media screen and (min-width: 450px) {
-        .euro__text {
-            width: 115px;
-        }
-    }
-
     .country-code__text, .euro__text {
-        height: 25px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 30px;
         font-family: 'Courier New', Courier, monospace;
         background-color: var(--background);
         border: 2px solid var(--foreground);
         border-radius: 7px;
-        color: #982FA9;
-    }
-
-    @media screen and (min-width: 450px) {
-        .country-code__text, .euro__text {
-            height: 40px;
-            font-size: 30px;
-        }
+        color: var(--foreground);
     }
 
     .euro__calculate {
@@ -167,21 +145,18 @@
     }
 
     .euro__valuta, .country-code__valuta {
-        width: 80px;
-        height: 25px;
-        margin-left: 10px;
+        width: 130px;
+        height: 40px;
+        margin-left: 40px;
         border: 2px solid var(--foreground);
         border-radius: 7px;
-        font-size: 15px;
+        font-size: 30px;
         color: black;
     }
 
-    @media screen and (min-width: 450px) {
+    @media screen and (max-width: 650px) {
         .euro__valuta, .country-code__valuta {
-            width: 180px;
-            height: 40px;
-            margin-left: 40px;
-            font-size: 30px;
+            margin-left: 10px;
         }
     }
 
