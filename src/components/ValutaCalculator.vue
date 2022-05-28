@@ -83,10 +83,9 @@
 
 <style>
     .converter__title {
+        width: 530px;
         text-align: center;
         margin: 40px;
-        font-size: 40px;
-        width: 530px;
         padding: 10px 0;
         border: 3px solid var(--foreground);
         border-radius: 7px;
@@ -95,11 +94,11 @@
 
     @media screen and (max-width: 650px) {
         .converter__title {
-            font-size: 20px;
-            margin: 40px 0 0 70px;
-            border: none;
-            padding: 0;
             text-align: left;
+            margin: 40px 0 0 50px;
+            padding: 0;
+            border: none;
+            font-size: 30px;
         }
     }
 
