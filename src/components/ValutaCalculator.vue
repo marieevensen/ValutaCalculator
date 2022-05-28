@@ -95,7 +95,7 @@
     @media screen and (max-width: 650px) {
         .converter__title {
             text-align: left;
-            margin: 40px 0 0 50px;
+            margin: 40px 0 0 40px;
             padding: 0;
             border: none;
             font-size: 30px;
