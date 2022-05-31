@@ -1,5 +1,5 @@
 <template>
-	<main class="converter">
+	<main class="converter" v-if="!error">
         <h1 class="converter__title">VALUTACALCULATOR</h1>
 
         <p class="converter__date">
@@ -35,6 +35,10 @@
             <p aria-label="The name of the bank, myesBank">myesBank</p>
         </div>
 	</main>
+
+    <div v-if="error">
+        {{ error }}
+    </div>
 </template>
 
 <script>
@@ -45,7 +49,8 @@
                 valutas: {},
                 eurValuta: '',
                 selectedValuta: 1,
-                converting: ''
+                converting: '',
+                error: ''
 	 		}
 	 	},
 
@@ -57,13 +62,36 @@
 	 		async fetchValue() {
 	 			const url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/eur.json`;
 	 			const respond = await fetch(url);
-	 			const result = await respond.json();
+                try {
+                    await this.handleRespond(respond);
+                } catch (error) {
+                    this.error = error.message;
+                }
+            },
+             
+			async handleRespond(respond) {
+				if(respond.status >= 200 && respond.status < 300) {
+					const result  = await respond.json();
+					this.today = result.date;
+                    this.valutas = result.eur;
+                    this.eurValuta = result.eur.eur;
+				
+					return true;
+					
+				} else {
+					if(respond.status === 404) {
+						throw new Error('Url ikke funnet!');
+					}
+					if(respond.status === 401) {
+						throw new Error('Ikke authorisert!');
+					}
+					if(respond.status > 500) {
+						throw new Error('Server error!');
+					}
+					throw new Error('Noe gikk galt!');
+				}
+			},
 
-                this.today = result.date;
-                this.valutas = result.eur;
-                this.eurValuta = result.eur.eur;
-	 		},
-            
             calculate() {
                 const output = this.eurValuta * this.selectedValuta;
                 this.converting = output;
@@ -74,11 +102,13 @@
 </script>
 
 <!-- Kommenterer script
-    1 Henter ut info fra api
-    2 Henter alle resultatene jeg trenger fra api
-    2.1 Gir resultatene nye navn, som this.today -> result.date
-    3 Lager en variabel output som er euro valutaen ganget med den valutaen som er valgt
-    4 Sier at this.converting bare skal ha 4 desimaler
+	1 Henter ut info fra api
+	2 Sjekker om status er større eller lik 200 OG mindre enn 300
+	2.1 Hvis status er det så hentes alle resultatene jeg trenger fra api
+	2.2 Gir resultatene nye navn, som this.todat = result.date
+	3 Hvis ikke 2 er true, så sjekkes det hvilken feilmelding som gjelder og skriver ut en errormelding
+    4 Lager en variabel output som er euro valutaen ganget med den valutaen som er valgt
+    4.1 Sier at this.converting bare skal ha 4 desimaler
 -->
 
 <style>
