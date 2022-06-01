@@ -1,6 +1,6 @@
 # ValutaCalculator
 
-In this project we learned about using API, and retrieve data from this external source.
+In this project I learned about using API, and retrieve data from this external source.
 I have used a valuta API. In this project you can convert euro to all the valutas in the world.
 You can do alot more with this API.
 
